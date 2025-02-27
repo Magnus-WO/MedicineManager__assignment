@@ -1,0 +1,66 @@
+body {
+  width: 100%;
+  height: 100vh;
+}
+/* Navbar */
+.navbar {
+  height: 10vh;
+  width: 100%;
+  background-color: var(--background-color-secondary);
+  text-align: center;
+}
+
+.navbar__filtering-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-large);
+}
+
+.navbar__search-container {
+  color: var(--font-color-secondary);
+  display: flex;
+  /* flex-direction: column; */
+  gap: var(--spacing-x-small);
+}
+
+.search__input-field {
+  padding: 0 var(--spacing-xx-small);
+}
+
+/* Medicine showcase */
+main {
+  height: 100%;
+  width: 100%;
+  padding: 3rem 6rem;
+  position: relative;
+}
+.medicine-container {
+  height: 100%;
+  width: 100%;
+
+  border: var(--border);
+}
+.medicine__add-button {
+  height: 80px;
+  width: 230px;
+  background-color: var(--background-color-main);
+  color: var(--font-color-secondary);
+  font-size: var(--font-size-large);
+
+  border-radius: var(--border-radius);
+  border: none;
+
+  z-index: 100;
+  position: sticky;
+  bottom: 40px;
+  left: 4000px;
+}
+.medicine__add-button:hover {
+  cursor: pointer;
+  background-color: #2aa572;
+  box-shadow: 10px 1px 20px black;
+  transition: box-shadow 100ms ease-in;
+  transition: background-color 100ms ease-in;
+}

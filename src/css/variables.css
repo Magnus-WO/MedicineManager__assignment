@@ -1,0 +1,28 @@
+:root {
+  /* Colors */
+  --background-color-main: #279e6c;
+  --background-color-secondary: #1c77c3;
+  --background-color-tertiary: #d7e9f2;
+
+  /* Spacing */
+  --spacing-xx-small: 0.3rem;
+  --spacing-x-small: 0.7rem;
+  --spacing-small: 1rem;
+  --spacing-medium: 1.5rem;
+  --spacing-large: 2rem;
+  --spacing-x-large: 4rem;
+
+  /* Font sizes */
+  --font-size-small: 10px;
+  --font-size-medium: 18px;
+  --font-size-large: 30px;
+  --font-size-x-large: 35px;
+
+  /* Font colors */
+  --font-color-main: black;
+  --font-color-secondary: white;
+
+  /* Misc */
+  --border-radius: 18px;
+  --border: 2px solid black;
+}
