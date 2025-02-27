@@ -10,7 +10,75 @@
     <title>Medicine App</title>
   </head>
   <body>
-    <main></main>
+    <nav class="navbar">
+      <div class="navbar__filtering-container">
+        <div class="navbar__search-container">
+          <label for="search-input" class="search__label">Search</label>
+          <input
+            type="text"
+            id="search__input"
+            name="search-input"
+            placeholder="search medicine"
+            class="search-input"
+          />
+        </div>
+        <div class="navbar__filter-container">
+          <select name="filter--all" id="filter">
+            <option value="all">All</option>
+            <option value="pills">Pills</option>
+            <option value="liquid">Liquid</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!-- Medicine showcase -->
+      <section class="medicine-container"></section>
+      <button class="medicine__add-button">Add medicine</button>
+      <!-- Form -->
+      <section class="form__modal">
+        <form class="form">
+          <div class="form__header-container">
+            <h1>Add Medicine</h1>
+            <p>Input medicine info below</p>
+          </div>
+          <!-- form inputs -->
+          <fieldset class="form__fieldset">
+            Input info
+            <div class="form__input-container">
+              <label for="name-input">Name</label>
+              <input type="text" id="name-input" name="name-input" />
+            </div>
+            <div class="form__input-container">
+              <label for="manufacturer-input">Manufacturer</label>
+              <input
+                type="text"
+                id="manufacturer-input"
+                name="manufacturer-input"
+              />
+            </div>
+            <div class="form__input-container">
+              <label for="quantity-input">Quantity</label>
+              <input type="text" id="quantity-input" name="quantity-input" />
+            </div>
+            <select name="form__medicine-type" id="form__medicine-type">
+              <option value="">Type</option>
+              <option value="pills">Pills</option>
+              <option value="liquid">Liquid</option>
+            </select>
+            <div class="form__input-container">
+              <label for="expiration-input">Expiration date</label>
+              <input
+                type="date"
+                id="expiration-input"
+                name="expiration-input"
+              />
+            </div>
+          </fieldset>
+          <button class="form__button">Add medicine</button>
+        </form>
+      </section>
+    </main>
     <script type="module" src="./src/js/app.js"></script>
   </body>
 </html>
