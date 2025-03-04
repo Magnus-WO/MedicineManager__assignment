@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   z-index: 1000;
-  /* display: none; */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -62,7 +62,7 @@
 }
 
 .form__input-field {
-  width: 400px;
+  width: 100%;
   padding: 0 var(--spacing-xx-small);
 }
 
@@ -90,9 +90,14 @@
 
 .form__button:hover {
   cursor: pointer;
-  opacity: 0.9;
+  opacity: var(--opacity);
 }
 
+/* Based on JS logic */
+
+.form__modal--visible {
+  display: block;
+}
 .form__invalid-input {
   border: 2px solid red;
 }

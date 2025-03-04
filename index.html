@@ -34,7 +34,9 @@
     </nav>
     <main>
       <!-- Medicine showcase -->
-      <section class="medicine-container"></section>
+      <section class="medicine-container">
+        <ul class="medicine__list"></ul>
+      </section>
       <button class="medicine__add-button">Add medicine</button>
 
       <!-- Form -->
@@ -94,14 +96,16 @@
                 />
               </div>
               <div class="feedback-container">
-                <p class="form__feedback">Feedback</p>
+                <p class="form__feedback"></p>
               </div>
             </fieldset>
             <div class="form__button-container">
-              <button class="form__button form__button--add">
+              <button class="form__button form__button--submit">
                 Add medicine
               </button>
-              <button class="form__button form__button--close">x</button>
+              <button class="form__button form__button--close" type="button">
+                x
+              </button>
             </div>
           </form>
         </div>

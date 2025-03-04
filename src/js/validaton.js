@@ -27,6 +27,11 @@ class Validation {
         inputField.classList.remove("form__invalid-input");
         feedbackMessage.textContent = "";
       });
+      document
+        .querySelector(".form__button--close")
+        .addEventListener("click", () => {
+          inputField.classList.remove("form__invalid-input");
+        });
       if (!inputField.value.trim()) {
         feedbackMessage.classList.add("form__invalid-input--message");
         feedbackMessage.textContent = field.message;
