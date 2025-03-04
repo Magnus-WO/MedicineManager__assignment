@@ -51,13 +51,18 @@
 .form__input-container {
   width: 100%;
   display: flex;
+  justify-content: flex-end;
   gap: var(--spacing-xx-small);
   padding: var(--spacing-xx-small);
   background-color: var(--background-color-tertiary);
 }
 
+.form__input-container label {
+  text-align: center;
+}
+
 .form__input-field {
-  flex-grow: 1;
+  width: 400px;
   padding: 0 var(--spacing-xx-small);
 }
 
