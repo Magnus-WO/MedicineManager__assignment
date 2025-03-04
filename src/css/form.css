@@ -92,3 +92,12 @@
   cursor: pointer;
   opacity: 0.9;
 }
+
+.form__invalid-input {
+  border: 2px solid red;
+}
+
+.form__invalid-input--message {
+  visibility: visible;
+  color: #900808;
+}

@@ -1,5 +1,5 @@
 import MedicineManager from "./medicineManager";
-
+import Validation from "./validaton";
 // Fetching form elements
 const form = document.querySelector(".form");
 const nameInput = document.querySelector(".name__input");
@@ -7,13 +7,19 @@ const manufacturerInput = document.querySelector(".manufacturer__input");
 const quantityInput = document.querySelector(".quantity__input");
 const typeInput = document.querySelector(".type__input");
 const expirationDateInput = document.querySelector(".expiration-date__input");
-const feedbackParagraph = document.querySelector(".form__feedback");
+const feedbackMessage = document.querySelector(".form__feedback");
 const submitButton = document.querySelector(".form__button--add");
 
 //Adding eventlisteners
+
+document.addEventListener("DOMContentLoaded", () => {});
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("button working");
+  if (!Validation.validateForm(feedbackMessage)) {
+    console.log("returning true");
+    return;
+  }
 
   MedicineManager.addMedicine(
     nameInput.value.trim(),
