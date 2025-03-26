@@ -18,6 +18,31 @@ class Ui {
     });
   }
 
+  static displayDeleteModal(id, name) {
+    const deleteModal = document.querySelector(".delete-container");
+    const deleteMessage = document.querySelector(".delete-message");
+    const confirmDeleteButton = document.querySelector(
+      ".delete-modal__confirm-button"
+    );
+
+    deleteMessage.textContent = `Do you want to delete task "${name}"?`;
+    deleteModal.classList.add("display-delete-modal");
+    confirmDeleteButton.addEventListener("click", () => {
+      MedicineManager.deleteMedicine(id);
+      deleteMessage.textContent = "";
+      deleteModal.classList.remove("display-delete-modal");
+    });
+  }
+
+  static hideDeleteModal(closeButton) {
+    closeButton.addEventListener("click", () => {
+      const deleteModal = document.querySelector(".delete-container");
+      const deleteMessage = document.querySelector(".delete-message");
+      deleteModal.classList.remove("display-delete-modal");
+      deleteMessage.textContent = "";
+    });
+  }
+
   static renderMedicine() {
     const medicineList = document.querySelector(".medicine__list");
     medicineList.innerHTML = "";
@@ -97,9 +122,20 @@ class Ui {
         container.classList.add("medicine-info");
       });
       toolsContainer.classList.add("medicine__tools-container");
+
       // Adding eventlisteners
       deleteButton.addEventListener("click", () => {
-        MedicineManager.deleteMedicine(medicine.id);
+        Ui.displayDeleteModal(medicine.id, medicine.name);
+      });
+      editButton.addEventListener("click", () => {
+        MedicineManager.editMedicine(
+          medicine.id,
+          medicine.name,
+          medicine.manufacturer,
+          medicine.quantity,
+          medicine.type,
+          medicine.expirationDate
+        );
       });
     });
   }

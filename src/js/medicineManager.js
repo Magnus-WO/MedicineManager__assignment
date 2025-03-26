@@ -1,3 +1,4 @@
+import { nameInput } from "./app";
 import Medicine from "./medicine";
 import Ui from "./ui";
 
@@ -21,6 +22,8 @@ class MedicineManager {
     MedicineManager.medicineCollection = latestCollection;
   }
   static deleteMedicine(id) {
+    console.log("confirm delete");
+
     const latestCollection = JSON.parse(
       localStorage.getItem("medicine-collection")
     );
@@ -29,6 +32,12 @@ class MedicineManager {
     });
     MedicineManager.storeMedicine(MedicineManager.medicineCollection);
     Ui.renderMedicine();
+  }
+
+  static editMedicine(id, name, manufacturer, quantity, type, expirationDate) {
+    const latestCollection = JSON.parse(
+      localStorage.getItem("medicine-collection")
+    );
   }
 
   static storeMedicine(medicineCollection) {

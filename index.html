@@ -38,77 +38,93 @@
         <ul class="medicine__list"></ul>
       </section>
       <button class="medicine__add-button">Add medicine</button>
-
-      <!-- Form -->
-      <section class="form__modal">
-        <div class="form-container">
-          <form class="form">
-            <div class="form__header-container">
-              <h1>Add Medicine</h1>
-              <p>Input medicine info below</p>
-            </div>
-            <!-- form inputs -->
-            <fieldset class="form__fieldset">
-              <legend>Input info</legend>
-              <div class="form__input-container">
-                <label for="name-input">Name</label>
-                <input
-                  type="text"
-                  id="name-input"
-                  name="name-input"
-                  class="form__input-field name__input"
-                />
-              </div>
-              <div class="form__input-container">
-                <label for="manufacturer-input">Manufacturer</label>
-                <input
-                  type="text"
-                  id="manufacturer-input"
-                  name="manufacturer-input"
-                  class="form__input-field manufacturer__input"
-                />
-              </div>
-              <div class="form__input-container">
-                <label for="quantity-input">Quantity</label>
-                <input
-                  type="text"
-                  id="quantity-input"
-                  name="quantity-input"
-                  class="form__input-field quantity__input"
-                />
-              </div>
-              <select
-                name="form__medicine-type"
-                id="form__medicine-type"
-                class="form__medicine-type type__input"
-              >
-                <option value="">Type</option>
-                <option value="pills">Pills</option>
-                <option value="liquid">Liquid</option>
-              </select>
-              <div class="form__input-container">
-                <label for="expiration-input">Expiration date</label>
-                <input
-                  type="date"
-                  id="expiration-input"
-                  name="expiration-input"
-                  class="form__input-field expiration-date__input"
-                />
-              </div>
-              <div class="feedback-container">
-                <p class="form__feedback"></p>
-              </div>
-            </fieldset>
-            <div class="form__button-container">
-              <button class="form__button form__button--submit">Add</button>
-              <button class="form__button form__button--close" type="button">
-                Close
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
     </main>
+    <!-- Form -->
+    <section class="form__modal">
+      <div class="form-container">
+        <form class="form">
+          <div class="form__header-container">
+            <h1>Add Medicine</h1>
+            <p>Input medicine info below</p>
+          </div>
+          <!-- form inputs -->
+          <fieldset class="form__fieldset">
+            <legend>Input info</legend>
+            <div class="form__input-container">
+              <label for="name-input">Name</label>
+              <input
+                type="text"
+                id="name-input"
+                name="name-input"
+                class="form__input-field name__input"
+              />
+            </div>
+            <div class="form__input-container">
+              <label for="manufacturer-input">Manufacturer</label>
+              <input
+                type="text"
+                id="manufacturer-input"
+                name="manufacturer-input"
+                class="form__input-field manufacturer__input"
+              />
+            </div>
+            <div class="form__input-container">
+              <label for="quantity-input">Quantity</label>
+              <input
+                type="text"
+                id="quantity-input"
+                name="quantity-input"
+                class="form__input-field quantity__input"
+              />
+            </div>
+            <select
+              name="form__medicine-type"
+              id="form__medicine-type"
+              class="form__medicine-type type__input"
+            >
+              <option value="">Type</option>
+              <option value="pills">Pills</option>
+              <option value="liquid">Liquid</option>
+            </select>
+            <div class="form__input-container">
+              <label for="expiration-input">Expiration date</label>
+              <input
+                type="date"
+                id="expiration-input"
+                name="expiration-input"
+                class="form__input-field expiration-date__input"
+              />
+            </div>
+            <div class="feedback-container">
+              <p class="form__feedback"></p>
+            </div>
+          </fieldset>
+          <div class="form__button-container">
+            <button class="form__button form__button--submit">Add</button>
+            <button class="form__button form__button--close" type="button">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="delete-container">
+      <div class="delete-modal-container">
+        <div class="delete-modal">
+          <div class="delete-message-container">
+            <p class="delete-message">Random</p>
+          </div>
+          <div class="delete-modal__button-container">
+            <button class="delete-modal__confirm-button delete-modal__button">
+              Confirm
+            </button>
+            <button class="delete-modal__cancel-button delete-modal__button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
     <script type="module" src="./src/js/app.js"></script>
   </body>
 </html>

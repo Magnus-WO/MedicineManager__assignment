@@ -120,3 +120,72 @@ main {
   cursor: pointer;
   opacity: var(--opacity);
 }
+
+/* Delete modal */
+.delete-container {
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.516);
+}
+
+.display-delete-modal {
+  display: block;
+}
+.delete-modal-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-modal {
+  height: 50%;
+  width: 50%;
+  background-color: var(--background-color-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-medium);
+}
+.delete-message-container {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: var(--font-color-error);
+}
+
+.delete-message {
+  font-size: var(--font-size-large);
+}
+.delete-modal__button-container {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-medium);
+}
+
+.delete-modal__button {
+  height: 20%;
+  width: 20%;
+  background-color: var(--background-color-tertiary);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-medium);
+}
+.delete-modal__button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}

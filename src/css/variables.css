@@ -21,6 +21,7 @@
   /* Font colors */
   --font-color-main: black;
   --font-color-secondary: white;
+  --font-color-error: #900808;
 
   /* Misc */
   --border-radius: 18px;
