@@ -1,4 +1,5 @@
 import Medicine from "./medicine";
+import Ui from "./ui";
 
 class MedicineManager {
   static medicineCollection =
@@ -18,6 +19,16 @@ class MedicineManager {
     latestCollection.push(medicine);
     this.storeMedicine(latestCollection);
     MedicineManager.medicineCollection = latestCollection;
+  }
+  static deleteMedicine(id) {
+    const latestCollection = JSON.parse(
+      localStorage.getItem("medicine-collection")
+    );
+    MedicineManager.medicineCollection = latestCollection.filter((medicine) => {
+      return medicine.id != id;
+    });
+    MedicineManager.storeMedicine(MedicineManager.medicineCollection);
+    Ui.renderMedicine();
   }
 
   static storeMedicine(medicineCollection) {

@@ -1,5 +1,6 @@
 import { validate } from "uuid";
 import Validation from "./validaton";
+import MedicineManager from "./medicineManager";
 
 class Ui {
   static currentEditId = null;
@@ -24,7 +25,6 @@ class Ui {
       localStorage.getItem("medicine-collection")
     );
     medicineCollection.forEach((medicine) => {
-      console.log(medicine);
       //Creating elements
       const medicineContainer = document.createElement("li");
       //   containers
@@ -97,6 +97,10 @@ class Ui {
         container.classList.add("medicine-info");
       });
       toolsContainer.classList.add("medicine__tools-container");
+      // Adding eventlisteners
+      deleteButton.addEventListener("click", () => {
+        MedicineManager.deleteMedicine(medicine.id);
+      });
     });
   }
 }
