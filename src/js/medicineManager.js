@@ -7,8 +7,7 @@ class MedicineManager {
     JSON.parse(localStorage.getItem("medicine-collection")) || [];
 
   static addMedicine(name, manufacturer, quantity, type, expirationDate) {
-    const latestCollection =
-      JSON.parse(localStorage.getItem("medicine-collection")) || [];
+    const latestCollection = this.medicineCollection;
 
     let medicine = new Medicine(
       name,
@@ -22,11 +21,8 @@ class MedicineManager {
     MedicineManager.medicineCollection = latestCollection;
   }
   static deleteMedicine(id) {
-    console.log("confirm delete");
+    const latestCollection = this.medicineCollection;
 
-    const latestCollection = JSON.parse(
-      localStorage.getItem("medicine-collection")
-    );
     MedicineManager.medicineCollection = latestCollection.filter((medicine) => {
       return medicine.id != id;
     });
@@ -35,9 +31,23 @@ class MedicineManager {
   }
 
   static editMedicine(id, name, manufacturer, quantity, type, expirationDate) {
-    const latestCollection = JSON.parse(
-      localStorage.getItem("medicine-collection")
+    console.log("message from edit medicine");
+
+    const latestCollection = this.medicineCollection;
+    const medicineIndex = latestCollection.findIndex(
+      (medicine) => medicine.id === id
     );
+    if (medicineIndex !== -1) {
+      latestCollection[medicineIndex] = {
+        name,
+        manufacturer,
+        quantity,
+        type,
+        expirationDate,
+      };
+    }
+    MedicineManager.storeMedicine(latestCollection);
+    MedicineManager.medicineCollection = latestCollection;
   }
 
   static storeMedicine(medicineCollection) {

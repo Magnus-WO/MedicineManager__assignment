@@ -1,10 +1,20 @@
 import { validate } from "uuid";
 import Validation from "./validaton";
 import MedicineManager from "./medicineManager";
+import {
+  expirationDateInput,
+  manufacturerInput,
+  nameInput,
+  quantityInput,
+  submitButton,
+  typeInput,
+  form,
+} from "./app";
 
 class Ui {
   static currentEditId = null;
   static displayAddModal(openAddModalButton, formModal) {
+    submitButton.textContent = "Add";
     openAddModalButton.addEventListener("click", () => {
       formModal.classList.add("form__modal--visible");
     });
@@ -13,11 +23,13 @@ class Ui {
     closeAddModalButton.addEventListener("click", () => {
       formModal.classList.remove("form__modal--visible");
       feedBackMessage.textContent = "";
+      submitButton.textContent = "Add";
       Ui.currentEditId = null;
       form.reset();
     });
   }
 
+  // Deleting
   static displayDeleteModal(id, name) {
     const deleteModal = document.querySelector(".delete-container");
     const deleteMessage = document.querySelector(".delete-message");
@@ -43,12 +55,34 @@ class Ui {
     });
   }
 
+  // Editing
+  static displayEditModal() {
+    const formModal = document.querySelector(".form__modal");
+    formModal.classList.add("form__modal--visible");
+  }
+
+  static populateEditForm(id) {
+    form.reset();
+    submitButton.textContent = "Confirm edit";
+    const medicineToEdit = MedicineManager.medicineCollection.find(
+      (medicine) => medicine.id === id
+    );
+    nameInput.value = medicineToEdit.name;
+    manufacturerInput.value = medicineToEdit.manufacturer;
+    quantityInput.value = medicineToEdit.quantity;
+    typeInput.value = medicineToEdit.type;
+    expirationDateInput.value = medicineToEdit.expirationDate;
+    Ui.currentEditId = id;
+  }
+
+  // Rendering
   static renderMedicine() {
     const medicineList = document.querySelector(".medicine__list");
     medicineList.innerHTML = "";
     const medicineCollection = JSON.parse(
       localStorage.getItem("medicine-collection")
     );
+
     medicineCollection.forEach((medicine) => {
       //Creating elements
       const medicineContainer = document.createElement("li");
@@ -128,14 +162,8 @@ class Ui {
         Ui.displayDeleteModal(medicine.id, medicine.name);
       });
       editButton.addEventListener("click", () => {
-        MedicineManager.editMedicine(
-          medicine.id,
-          medicine.name,
-          medicine.manufacturer,
-          medicine.quantity,
-          medicine.type,
-          medicine.expirationDate
-        );
+        Ui.displayEditModal();
+        Ui.populateEditForm(medicine.id);
       });
     });
   }

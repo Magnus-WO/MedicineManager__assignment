@@ -14,7 +14,7 @@ export const expirationDateInput = document.querySelector(
 );
 const feedbackMessage = document.querySelector(".form__feedback");
 
-const submitButton = document.querySelector(".form__button--submit");
+export const submitButton = document.querySelector(".form__button--submit");
 const openAddModalButton = document.querySelector(".medicine__add-button");
 const closeAddModalButton = document.querySelector(".form__button--close");
 const cancelDeleteButton = document.querySelector(
@@ -32,17 +32,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   if (!Validation.validateForm(feedbackMessage)) {
-    console.log("returning true");
     return;
   }
-
-  MedicineManager.addMedicine(
-    nameInput.value.trim(),
-    manufacturerInput.value.trim(),
-    quantityInput.value.trim(),
-    typeInput.value,
-    expirationDateInput.value.trim()
-  );
+  if (!Ui.currentEditId) {
+    MedicineManager.addMedicine(
+      nameInput.value.trim(),
+      manufacturerInput.value.trim(),
+      quantityInput.value.trim(),
+      typeInput.value,
+      expirationDateInput.value.trim()
+    );
+  } else {
+    MedicineManager.editMedicine(
+      Ui.currentEditId,
+      nameInput.value.trim(),
+      manufacturerInput.value.trim(),
+      quantityInput.value.trim(),
+      typeInput.value,
+      expirationDateInput.value.trim()
+    );
+    Ui.currentEditId = null;
+    formModal.classList.remove("form__modal--visible");
+    submitButton.textContent = "Add";
+  }
   Ui.renderMedicine();
+  form.reset();
 });
