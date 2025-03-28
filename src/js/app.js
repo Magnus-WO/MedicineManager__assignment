@@ -21,12 +21,15 @@ const cancelDeleteButton = document.querySelector(
   ".delete-modal__cancel-button"
 );
 
+const typeFilter = document.querySelector("#filter");
+
 //Adding eventlisteners
 
 document.addEventListener("DOMContentLoaded", () => {
   Ui.displayAddModal(openAddModalButton, formModal);
   Ui.closeAddModal(closeAddModalButton, formModal, form, feedbackMessage);
   Ui.hideDeleteModal(cancelDeleteButton);
+
   Ui.renderMedicine();
 });
 
@@ -59,4 +62,15 @@ form.addEventListener("submit", (e) => {
   }
   Ui.renderMedicine();
   form.reset();
+});
+
+typeFilter.addEventListener("change", (e) => {
+  console.log(e.target.value);
+  if (e.target.value === "all") {
+    Ui.renderMedicine("all");
+  } else if (e.target.value === "pills") {
+    Ui.renderMedicine("pills");
+  } else if (e.target.value === "liquid") {
+    Ui.renderMedicine("liquid");
+  }
 });

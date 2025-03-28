@@ -76,14 +76,17 @@ class Ui {
   }
 
   // Rendering
-  static renderMedicine() {
+  static renderMedicine(filter = "all") {
     const medicineList = document.querySelector(".medicine__list");
     medicineList.innerHTML = "";
     const medicineCollection = JSON.parse(
       localStorage.getItem("medicine-collection")
     );
-
-    medicineCollection.forEach((medicine) => {
+    const filteredCollection =
+      filter === "all"
+        ? medicineCollection
+        : medicineCollection.filter((medicine) => medicine.type === filter);
+    filteredCollection.forEach((medicine) => {
       //Creating elements
       const medicineContainer = document.createElement("li");
       //   containers
